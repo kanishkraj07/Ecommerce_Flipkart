@@ -1,0 +1,83 @@
+<section *ngIf="finishesLoading">
+<app-header-section></app-header-section>
+
+<main>
+  <app-category-items></app-category-items>
+  <section class="slider-items">
+    <div class="horizontal-slider">
+      <button class="slider-left-arrow" (click)="previousSlide()">
+        <fa-icon [icon]="faAngleLeft" aria-hidden="true"></fa-icon>
+      </button>
+      <div class="slider-item">
+        <div #sliderImages [style]="deviation">
+        <img [src]="images[0]" alt="slider-image">
+        </div>
+        <div #sliderImages [style]="deviation">
+        <img [src]="images[1]" alt="slider-image">
+        </div>
+        <div #sliderImages [style]="deviation">
+        <img [src]="images[2]" alt="slider-image">
+        </div>
+        <div #sliderImages [style]="deviation">
+        <img [src]="images[3]" alt="slider-image">
+        </div>
+        <div #sliderImages [style]="deviation">
+        <img [src]="images[4]" alt="slider-image">
+        </div>
+      </div>
+      <button class="slider-right-arrow" (click)="nextSlide()">
+        <fa-icon [icon]="faAngleRight" aria-hidden="true"></fa-icon>
+      </button>
+    </div>
+  </section>
+  <section>
+    <div class="category-panel-container">
+     <ng-container *ngFor="let panelInfo of panelsInfo; let index=index">
+       <ng-container [ngTemplateOutlet]="categoryPanel" [ngTemplateOutletContext]="{ panelInfo: panelInfo, index: index }"></ng-container>
+       <div *ngIf="index === 8">
+         <img [src]="ads[1]" alt="ad-image">
+       </div>
+     </ng-container>
+    </div>
+  </section>
+</main>
+<app-footer-section></app-footer-section>
+</section>
+
+<ng-template #categoryPanel let-panelInfo="panelInfo" let-index="index">
+  <div class="category-panel" [class.mini-category]="panelInfo.panel.miniPanel">
+  <div class="category-panel-section" [class.mini-category-panel]="panelInfo.panel.miniPanel">
+    <div class="panel">
+      <div class="panel-header">
+        <div class="panel-title">{{panelInfo.panel.panelName}}</div>
+        <div class="panel-more-items" (click)="navigateToInternalPanelPage(panelInfo.panel.panelId)">
+          <fa-icon [icon]="faAngleRight" aria-hidden="true"></fa-icon>
+        </div>
+      </div>
+      <div class="panel-items-container">
+        <div class="panel-items" [class.mini-panel-items]="panelInfo.panel.miniPanel">
+          <div #panelItems class="panel-item" [class.mini-panel-item]="panelInfo.panel.miniPanel" *ngFor="let item of panelInfo.products | slice:0: panelInfo.panel.miniPanel ? 4 : 8" (click)="redirectToProductPage(panelInfo.panel.panelId, item.productId)">
+            <div class="panel-item-image">
+              <img [src]="item.productImg" alt="image">
+            </div>
+            <div class="panel-item-details">
+              <div class="panel-item-name" [class.mini-item-name]="panelInfo.panel.miniPanel">
+                {{item.productName}}
+              </div>
+              <div class="panel-item-price">
+                <span *ngIf="item.productPrice && !panelInfo.panel.miniPanel">From {{item.productPrice | currency: 'INR': 'symbol': '1.0-0'}}</span>
+                <span  *ngIf="item.minOffer" class="min-offer" [class.mini-min-offer]="panelInfo.panel.miniPanel">Min. {{item.minOffer}}&percnt; Off</span>
+                <span *ngIf="item.maxOffer" class="max-offer">Up to {{item.maxOffer}}&percnt; Off</span>
+                <span *ngIf="!(item.productPrice || item.minOffer || item.maxOffer)">Shop Now</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button *ngIf="!panelInfo.panel.miniPanel" class="slider-right-arrow" (click)="expandPanel(index)">
+          <fa-icon [icon]="faAngleRight" aria-hidden="true"></fa-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+  </div>
+</ng-template>

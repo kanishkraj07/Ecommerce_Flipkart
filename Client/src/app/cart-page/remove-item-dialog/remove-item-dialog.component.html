@@ -1,0 +1,12 @@
+<dialog #REMOVE_DIALOG>
+  <div class="remove-container">
+    <form class="remove-form" (ngSubmit)="removeItem()">
+      <p><span class="remove-dialog-header">Remove Item</span></p>
+      <p><span class="remove-consent">Are you sure want to remove this item?</span></p>
+      <div class="button-row">
+        <button type="button" class="cancel-action" (click)="closeRemoveDialog()">Cancel</button>
+        <button type="submit" class="remove-action">Remove</button>
+      </div>
+    </form>
+  </div>
+</dialog>

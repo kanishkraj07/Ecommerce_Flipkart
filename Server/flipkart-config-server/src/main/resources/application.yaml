@@ -1,0 +1,9 @@
+server:
+  port: 5000
+spring:
+  application:
+    name: flipkart-config-server
+  profiles:
+    active: native
+
+

@@ -1,0 +1,70 @@
+<footer>
+  <div class="footer">
+      <section class="external-links-and-address">
+        <div class="sub-links" *ngFor="let linkType of externalLinksList">
+          <div class="link-type">{{linkType.title | uppercase}}</div>
+          <div class="link-value">
+            <a *ngFor="let link of linkType.link" [href]="link.redirectUrl">{{link.value}}</a>
+          </div>
+        </div>
+        <div class="address">
+            <div class="mail-us">
+              <div class="link-type">Mail Us:</div>
+               <ng-container [ngTemplateOutlet]="address"></ng-container>
+            </div>
+          <div class="registered-address">
+            <div class="link-type">Registered Office Address:</div>
+            <ng-container [ngTemplateOutlet]="registeredAddress"></ng-container>
+          </div>
+        </div>
+      </section>
+    <section class="copyright-section">
+      <div class="seller">
+        <img src="https://static-assets-web.flixcart.com/batman-returns/batman-returns/p/images/sell-image-9de8ef.svg" alt="seller-image">
+        <span>Become a Seller</span>
+      </div>
+      <div class="advertise">
+        <img src="https://static-assets-web.flixcart.com/batman-returns/batman-returns/p/images/advertise-image-866c0b.svg" alt="advertise-image">
+        <span>Advertise</span>
+      </div>
+      <div class="gift-cards">
+        <img src="https://static-assets-web.flixcart.com/batman-returns/batman-returns/p/images/gift-cards-image-d7ff24.svg" alt="gift-card-image">
+        <span>Gift Cards</span>
+      </div>
+      <div class="help-center">
+        <img src="https://static-assets-web.flixcart.com/batman-returns/batman-returns/p/images/help-centre-image-c4ace8.svg" alt="help-image">
+        <span>Help Center</span>
+      </div>
+      <div class="copyright-text">
+        <span>&copy; 2007-2023 Flipkart.com</span>
+      </div>
+      <div class="bank-cards">
+        <img src="https://static-assets-web.flixcart.com/batman-returns/batman-returns/p/images/payment-method-c454fb.svg" alt="bank-cards-image">
+      </div>
+    </section>
+  </div>
+</footer>
+
+<ng-template #address>
+  <div class="address-value">
+    <p>Flipkart Internal Private Limited,</p>
+    <p>Buildings Alyssa, Begonia &amp;</p>
+    <p>Clove embassy Tech Village,</p>
+    <p>Outer Ring Road, Devarabeesanahalli Village,</p>
+    <p>Bengaluru, 560103,</p>
+    <p>Karnataka, India</p>
+  </div>
+</ng-template>
+
+<ng-template #registeredAddress>
+  <div class="address-value">
+    <p>Flipkart Internal Private Limited,</p>
+    <p>Buildings Alyssa, Begonia &amp;</p>
+    <p>Clove embassy Tech Village,</p>
+    <p>Outer Ring Road, Devarabeesanahalli Village,</p>
+    <p>Bengaluru, 560103,</p>
+    <p>Karnataka, India</p>
+    <p>CIN: U51109KA2012PTC066107</p>
+    <p>Telephone: <a>044-45614700</a></p>
+  </div>
+</ng-template>

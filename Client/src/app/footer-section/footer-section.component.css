@@ -1,0 +1,104 @@
+* {
+  font-family: Roboto, Arial, sans-serif;
+}
+
+.footer {
+  width: 100%;
+  background-color: #212121;
+  display: flex;
+  flex-direction: column;
+}
+
+.external-links-and-address {
+  height: inherit;
+  display: flex;
+  justify-content: space-around;
+  padding: 40px 40px 0;
+  margin-bottom: 30px;
+}
+
+.sub-links {
+  display: flex;
+  flex-direction: column;
+}
+
+.link-type {
+  color: #878787;
+  font-weight: 500;
+  font-size: 0.8em;
+}
+
+.link-value {
+  margin-top: 10px;
+}
+.link-value a {
+  display: block;
+  font-weight: 500;
+  color: white;
+  font-size: 0.75em;
+  line-height: 1.6;
+  text-decoration: none;
+}
+
+.line {
+  width: 0.12em;
+  height: 170px;
+  background-color: #454d5e;
+}
+
+.address {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.mail-us {
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid #454d5e;
+  padding: 0 10px 0 30px;
+  height: 170px;
+}
+
+.address-value {
+  margin-top: 5px;
+}
+
+.address-value p {
+  font-weight: 500;
+  color: white;
+  font-size: 0.78em;
+  line-height: 0.5;
+  padding-right: 5px;
+}
+
+.address-value a {
+  color: #2874f0;
+;
+}
+
+.registered-address {
+  display: flex;
+  flex-direction: column;
+}
+
+.copyright-section {
+  height: 60px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  border-top: 1px solid #454d5e;
+}
+
+.seller, .advertise, .gift-cards, .help-center, .copyright-text, .bank-cards {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.copyright-section span {
+  font-size: 0.8em;
+  color: white;
+  font-weight: 500;
+  padding-left: 5px;
+  cursor: pointer;
+}

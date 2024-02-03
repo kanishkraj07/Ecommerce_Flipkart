@@ -1,0 +1,117 @@
+<app-header-section [isInternalHeader]="true"></app-header-section>
+<app-category-items [isInternalCategoryItems]="true"></app-category-items>
+<section>
+    <div class="product-details-container" *ngIf="doneDataLoading">
+      <div class="product-left-container">
+        <div class="product-image">
+          <div class="wishlist" (click)="addToWishlist()">
+            <fa-icon class="wishlist-icon" [ngClass]="{'wishlist-state-changed': wishlistEnabled}" [icon]="faHeart"></fa-icon>
+          </div>
+          <img [src]="productDetails.productImg" [alt]="productDetails.productFullName + 'Image'">
+        </div>
+        <div class="product-action-buttons">
+          <button class="add-cart" (click)="addCartItem()" [class.adding-cart-button]="addingToCart">
+            <span *ngIf="!addingToCart"><fa-icon [icon]="faCart"></fa-icon>&nbsp;&nbsp;add to cart</span>
+            <span *ngIf="addingToCart" class="add-to-cart">
+              <span class="spinner-border text-secondary add-cart-loading"></span>
+              <span>Going to Cart</span>
+            </span>
+          </button>
+          <button class="buy-now"><fa-icon [icon]="faBolt"></fa-icon>&nbsp;&nbsp;buy now</button>
+        </div>
+      </div>
+      <div class="product-right-container">
+        <div class="product-details">
+          <div class="product-name">
+            {{productDetails.productFullName}}
+          </div>
+          <div class="product-ratings">
+            <div class="rating">
+              {{productDetails.productRating}} <fa-icon [icon]="faStar" aria-hidden="true"></fa-icon>
+            </div>
+            <div class="no-of-ratings">
+              {{productDetails.totalRatings}} Ratings & {{productDetails.totalReviews}} Reviews
+            </div>
+            <div class="assured-image" *ngIf="productDetails.enterpriseInsurance">
+              <img src="https://static-assets-web.flixcart.com/fk-p-linchpin-web/fk-cp-zion/img/fa_62673a.png" alt="assured-image">
+            </div>
+          </div>
+          <div class="product-price-details">
+            <div class="price-off">
+             Extra {{productDetails.extraOff | currency: 'INR': 'symbol': '1.0'}} off
+            </div>
+            <div class="price-details">
+              <span class="offer-price">{{productDetails.finalPrice | currency: 'INR': 'symbol': '1.0'}}</span>
+              <span class="actual-price">{{productDetails.actualPrice | currency: 'INR': 'symbol': '1.0'}}</span>
+              <span class="discount-offer">{{productDetails.offerPercentage}}% off</span>
+            </div>
+            <div class="packaging-fee">
+              + {{productDetails.packagingFee | currency: 'INR': 'symbol': '1.0'}} Secured Packaging Fee
+            </div>
+          </div>
+          <div class="offers">
+            Available offers
+            <div class="available-offers" *ngFor="let offer of bankOffers">
+              <span class="offer-image"><img src="https://rukminim2.flixcart.com/www/36/36/promos/06/09/2016/c22c9fc4-0555-4460-8401-bf5c28d7ba29.png?q=90"></span>
+              <span class="bank-offer"><span>Bank Offer</span> {{offer}}</span>
+              <span class="terms-and-conditions">T&amp;C</span>
+            </div>
+          </div>
+          <div class="delivery-details">
+            <div class="delivery">
+              Delivery
+            </div>
+            <form [formGroup]="pincodeForm" class="pincode-and-delivery-details">
+              <div class="delivery-input-box">
+                <fa-icon [icon]="faLocation"></fa-icon>
+                <input type="number" (focusin)="pincodeVerificationText = 'Check'" (focusout)="pincodeVerificationText = 'Change'" formControlName="pincode" placeholder="Enter Delivery Pincode" required>
+                <div class="check-and-change" (click)="checkPincode()">
+                  {{pincodeVerificationText}}
+                </div>
+              </div>
+              <div class="pincode-error-field" *ngIf="!pincodeForm.valid && errors">{{errors}}</div>
+                <div class="delivery-date-details">
+                  Delivery by {{productDetails.deliveryDate | date: 'd MMM, EEEE'}}
+                  <span>|</span>
+                  <span *ngIf="productDetails.freeDelivery">Free</span>
+                  <span>₹40</span>
+                </div>
+            </form>
+          </div>
+          <div class="highlights-details">
+            <div class="highlights">
+              Highlights
+            </div>
+            <div class="highlights-list">
+              <ul *ngFor="let highlight of productDetails.productHighlight">
+                <li><span>{{highlight}}</span></li>
+              </ul>
+            </div>
+          </div>
+          <div class="seller-details">
+            <div class="seller">
+              Seller
+            </div>
+            <div class="seller-info-and-services">
+              <div class="seller-information">
+                <span class="seller-name">{{productDetails.sellerDetails.seller_name}}</span>
+                <div class="seller-rating">
+                  {{productDetails.sellerDetails.seller_rating}} <span><fa-icon [icon]="faStar"></fa-icon></span>
+                </div>
+              </div>
+              <div class="seller-services">
+                <ul *ngFor="let highlight of currentSellerHighlights">
+                  <li><span>{{highlight}}</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="super-coin">
+            <img src="../../assets/images/super-coin.png" alt="super-coin-image">
+          </div>
+        </div>
+      </div>
+    </div>
+</section>
+
+<app-footer-section></app-footer-section>

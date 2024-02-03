@@ -1,0 +1,17 @@
+server:
+  port: 9003
+
+spring:
+  application:
+    name: product-service
+  config:
+    import: "optional:configserver:http://localhost:5000"
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: f_product
+    password: flipkart_product
+    url: jdbc:mysql://localhost:3306/product_db
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: 'true'

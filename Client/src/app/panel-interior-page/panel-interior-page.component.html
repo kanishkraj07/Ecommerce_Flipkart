@@ -1,0 +1,25 @@
+<app-header-section [isInternalHeader]="true"></app-header-section>
+<ng-container>
+  <app-category-items [isInternalCategoryItems]="true"></app-category-items>
+  <div class="interior-panel-header">
+    <div class="panel-header-text">{{panelTitle}}</div>
+    <div class="items-count">{{interiorPanelItemsList.length}} Items</div>
+  </div>
+  <div class="interior-panel-items-list">
+    <div class="interior-item" *ngFor="let item of interiorPanelItemsList">
+      <div class="item-image">
+      <img [src]="item.productImg" alt="item-image">
+      </div>
+      <div class="item-name">
+        {{item.productName}}
+      </div>
+      <div class="item-price">
+        <span *ngIf="item.productPrice">From {{item.productPrice | currency: 'INR': 'symbol': '1.0-0'}}</span>
+        <span  *ngIf="item.minOffer" class="min-offer">Min. {{item.minOffer}}&percnt; Off</span>
+        <span *ngIf="item.maxOffer" class="max-offer">Up to {{item.maxOffer}}&percnt; Off</span>
+        <span *ngIf="!(item.productPrice || item.minOffer || item.maxOffer)">Shop Now</span>
+      </div>
+    </div>
+  </div>
+  <app-footer-section></app-footer-section>
+</ng-container>

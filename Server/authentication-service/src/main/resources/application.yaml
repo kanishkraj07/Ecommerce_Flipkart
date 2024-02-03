@@ -1,0 +1,27 @@
+
+spring:
+  application:
+    name: authentication-service
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: f_auth
+    password: flipkart_auth
+    url: jdbc:mysql://localhost:3306/auth_db
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: 'true'
+
+server:
+  port: 5001
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+twilio:
+  accountSid: AC4a965167281f23de0ac112d015f6067f
+  authToken: 44c0a6b232674e7d1a8f9a2f44aeb47c
+  phoneNumber: +16464806550
+

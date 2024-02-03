@@ -1,0 +1,62 @@
+<header *ngIf="doneDataLoading" [class.interior-header]="isInternalHeader">
+  <div class="logo" [routerLink]="['/']">
+    <img [src]="logoUrl" alt="flipkart-logo" >
+    <div *ngIf="isInternalHeader">Explore <span>Plus <img src="https://static-assets-web.flixcart.com/batman-returns/batman-returns/p/images/plus-brand-bc165b.svg" alt="plus-image"></span></div>
+  </div>
+    <div #ngbDropdownRef=ngbDropdown ngbDropdown class="search-bar">
+      <div class="search-icon">
+        <button><lucide-icon name="search"></lucide-icon></button>
+      </div>
+      <div class="search-box">
+        <input ngbDropdownAnchor [(ngModel)]="valueChanged" id="productSearch" type="text"  placeholder="Search for Products, Brands and More" (ngModelChange)="initiateSearchingProcess($event)"  (focus)="openSearchDropdown()" aria-haspopup="true" aria-expanded="false">
+      </div>
+      <div class="search-dropdown-content" aria-labelledby="productSearch" ngbDropdownMenu>
+        <ng-container *ngFor="let searchResultOption of searchedOptions()" [ngTemplateOutlet]="searchResults" [ngTemplateOutletContext]="{'searchResultOption': searchResultOption}">
+        </ng-container>
+      </div>
+    </div>
+  <div *ngIf="isCustLoggedIn" class="sign-in">
+    <fa-icon [icon]="faUser" aria-hidden="true"></fa-icon>
+    <div class="sign-in-text">
+      {{customerMobileNo}}
+    </div>
+  </div>
+  <div class="seller">
+    <div class="seller-icon">
+      <img *ngIf="!isInternalHeader" [src]="storeUrl" alt="store-image">
+    </div>
+    <div>
+      Become a Seller
+    </div>
+  </div>
+  <div *ngIf="!isCustLoggedIn" class="sign-in" (click)="navigateTo()">
+    <fa-icon [icon]="faUser" aria-hidden="true"></fa-icon>
+    <div class="sign-in-text">
+      Login
+    </div>
+  </div>
+  <div class="cart" (click)="navigateToCart()">
+    <div class="cart-details">
+      <img [src]="cartUrl" alt="cart-image">
+      <div *ngIf="cartCount > 0" class="cart-count">{{cartCount}}</div>
+    </div>
+
+    <div class="cart-text">
+      Cart
+    </div>
+  </div>
+  <div *ngIf="isCustLoggedIn" class="sign-in" (click)="logout()">
+    <lucide-icon name="log-out"></lucide-icon>
+    <div class="sign-in-text">
+      Logout
+    </div>
+  </div>
+</header>
+
+<ng-template #searchResults let-searchResultOption="searchResultOption">
+  <ng-container>
+    <button type="button" class="btn btn-dropdown-option search-result-option" ngbDropdownItem (click)="openSelectedProduct(searchResultOption.productId)">
+      <lucide-icon name="search"></lucide-icon><span class="search-result-product-name">{{searchResultOption.productName}}</span>
+    </button>
+  </ng-container>
+</ng-template>

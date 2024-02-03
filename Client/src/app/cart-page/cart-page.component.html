@@ -1,0 +1,126 @@
+<app-header-section [isInternalHeader]="true"></app-header-section>
+<div *ngIf="doneLoading" class="cart-container">
+  <div class="cart-items-container" [class.empty-cart]="cartItems.length === 0">
+    <ng-container [ngTemplateOutlet]="cartItems.length > 0 ? cartItemsBlock : emptyCartBlock" [ngTemplateOutletContext] = {cartItems}></ng-container>
+  </div>
+  <div *ngIf="doneLoading && cartItems.length > 0" class="price-details-container">
+    <div class="price-details-header">
+      Price Details
+    </div>
+    <div class="price-details">
+      <div class="actual-price-details">
+        <div>Price ({{cartItems.length}} item)</div>
+        <div>{{totalActualPrice | currency: 'INR': 'symbol': '1.0-0'}}</div>
+      </div>
+      <div class="discount-price-details">
+        <div>Discount</div>
+        <div class="discount-price">{{totalDiscount | currency: 'INR': 'symbol': '1.0-0'}}</div>
+      </div>
+      <div class="delivery-charges-details">
+        <div>Delivery Charges</div>
+        <div class="delivery-charges">
+          <span>{{totalDeliveryCharges | currency: 'INR': 'symbol': '1.0-0'}}</span>
+          <span>Free</span>
+        </div>
+      </div>
+      <div class="total-packaging-fee">
+        <div>Secured Packaging Fee</div>
+        <div>{{totalPackagingFee | currency: 'INR': 'symbol': '1.0-0'}}</div>
+      </div>
+    </div>
+    <div class="total-amount-details">
+        <div>Total Amount</div>
+        <div>{{totalFinalPrice | currency: 'INR': 'symbol': '1.0-0'}}</div>
+    </div>
+    <div class="save-amount">
+      You will save {{totalSaveAmount | currency: 'INR': 'symbol': '1.0-0'}} on this order
+    </div>
+  </div>
+</div>
+<section class="cart-footer">
+  <div class="policy-and-copyright">
+    Policies:
+    <div><a>Return Policy</a></div>
+    <div><a>Terms of use</a></div>
+    <div><a>Security</a></div>
+    <div><a>Privacy</a></div>
+    <div><a>Infringement</a></div>
+    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&copy;2007-2023 Flipkart.com</span>
+  </div>
+  <div class="help-center">
+    Need help?Visit the <a href="https://www.flipkart.com/helpcentre">Help Center</a> or <a href="https://www.flipkart.com/helpcentre">Contact Us</a>
+  </div>
+</section>
+
+<ng-template #cartItemsBlock let-cartItems="cartItems">
+  <div class="cart-items-count">
+    My Cart ({{cartItems.length}})
+  </div>
+  <ng-container *ngFor="let cartItem of cartItems">
+    <div class="all-cart-products">
+      <div class="product-info-and-quantity">
+        <div class="product-details">
+          <div class="product-image">
+            <img [src]="cartItem.productDetails?.productImg">
+          </div>
+          <div class="product-info">
+            <div class="product-name">
+              {{cartItem.productDetails?.productFullName}}
+            </div>
+            <div class="seller-details">
+              <span>Seller:{{cartItem.productDetails?.sellerDetails?.seller_name}}</span>
+              <img src="https://static-assets-web.flixcart.com/fk-p-linchpin-web/fk-cp-zion/img/fa_62673a.png" alt="flipkart-assured-image">
+            </div>
+            <div class="product-price-info">
+              <div class="actual-product-price">
+                {{cartItem.productDetails?.actualPrice | currency: 'INR': 'symbol': '1.0-0'}}
+              </div>
+              <div class="final-price">
+                {{cartItem.productDetails?.finalPrice | currency: 'INR': 'symbol': '1.0-0'}}
+              </div>
+              <div class="offer-percentage">
+                {{cartItem.productDetails?.offerPercentage}}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="product-quantity-save-remove">
+          <div class="product-quantity">
+            <div class="reduce-quantity">
+              <button (click)="updateItemQuantity(cartItem.cartId, cartItem.quantity - 1)" [disabled]="cartItem.quantity === 1"><fa-icon [icon]="faMinus" aria-hidden="true"></fa-icon></button>
+            </div>
+            <div class="quantity">
+              <input type="number" [value]="cartItem.quantity" >
+            </div>
+            <div class="increase-quantity">
+              <button (click)="updateItemQuantity(cartItem.cartId, cartItem.quantity + 1)"><fa-icon [icon]="faPlus" aria-hidden="true"></fa-icon></button>
+            </div>
+          </div>
+          <div class="save-for-later-opt">
+            save for later
+          </div>
+          <button class="remove-opt" (click)="openRemoveDialog(cartItem.cartId)">
+            remove
+          </button>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+  <div class="place-order-opt" (click)="placeOrder()">
+    <button>place order</button>
+  </div>
+</ng-template>
+
+<ng-template #emptyCartBlock>
+<div class="empty-cart-details">
+  <img src="https://rukminim2.flixcart.com/www/800/800/promos/16/05/2019/d438a32e-765a-4d8b-b4a6-520b560971e8.png?q=90" alt="empty-cart-image">
+  <div>Your cart is empty!</div>
+  <p>Explore our wide selection and find something you like</p>
+  <ng-container>
+    <button *ngIf="!isAuthenticated()" class="login-button" (click)="redirect()">Login</button>
+  </ng-container>
+</div>
+</ng-template>
+
+<app-remove-item-dialog [dialogId]="REMOVE_ITEM_DIALOG" (removeItemEvent)="removeCartItem($event)"></app-remove-item-dialog>
+<app-order-payment></app-order-payment>

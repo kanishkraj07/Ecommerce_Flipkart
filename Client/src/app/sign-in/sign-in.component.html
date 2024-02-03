@@ -1,0 +1,58 @@
+<app-header-section [isInternalHeader]="true"></app-header-section>
+<app-category-items [isInternalCategoryItems]="true"></app-category-items>
+<section class="sign-in-section">
+    <div class="sign-in-left-container">
+      <div class="title">{{currentView === 'loginView' ? 'Login' : NEW_USER_MESSAGE}}</div>
+      <div class="sub-message">
+        <p>{{currentView === 'loginView' ? 'Get access to your Orders,' : 'Sign up with your mobile number' }}</p>
+        <p>{{currentView === 'loginView' ? 'Wishlist and Recommendations' : 'to get started' }}</p>
+      </div>
+      <div class="login-image">
+        <img src="assets/images/login_img.png" alt="login-image">
+      </div>
+    </div>
+    <div class="sign-in-right-container">
+      <ng-container [ngTemplateOutlet]="authView ? otpAuthView : registrationView"></ng-container>
+    </div>
+</section>
+<app-footer-section></app-footer-section>
+
+<ng-template #registrationView>
+  <form class="login-container" [formGroup]="authenticationFormGroup" (ngSubmit)="requestOtp()">
+    <div class="mobile-input-box">
+      <input id="mobile-number" formControlName="mobileNumber" type="tel" placeholder="Enter Mobile number" required>
+      <div class="mobile-error-field" *ngIf="!authenticationFormGroup.valid && errors">{{errors}}</div>
+    </div>
+    <div class="terms-and-privacy">By continuing, you agree to Flipkart's <a href="">Terms of Use</a> and <a href="">Privacy Policy</a>.</div>
+    <button type="submit" class="request-otp">{{currentView === 'loginView' ? 'Request OTP' : 'CONTINUE'}}</button>
+    <button *ngIf="currentView === 'signupView'" class="existing-user-button" type="button" (click)="changeView()">Existing User? Log in</button>
+  </form>
+  <div *ngIf="currentView === 'loginView'" class="create-account">
+    <div (click)="changeView()">
+      New to Flipkart? Create an account
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #otpAuthView>
+  <div class="otp-auth-container">
+    <div class="request-otp-label">
+      Please enter the OTP sent to {{authenticationFormGroup.controls.mobileNumber.value}}.
+      <button class="change-mobile-no-button" (click)="authView=false">Change</button>
+    </div>
+      <form [formGroup]="otpDigitForm" class="otp-verification-options" (ngSubmit)="verifyOtp()">
+        <div formArrayName="otpDigitFields" class="otp-fields">
+          <div class="otp-digit" *ngFor="let digit of otpDigitControls; let index=index">
+            <input autofocus #otpDigit [formControlName]="index" type="text" maxlength="1" (keyup)="$event.code === 'Backspace' || $event.code === 'ArrowLeft' ? backFocus($event): shiftFocus($event)">
+          </div>
+        </div>
+        <button type="submit" class="request-otp submit-otp-button">Verify</button>
+        <div class="resend-code">Not received your code?
+          <span>
+              <span class="resend-code-timer" *ngIf="!isResendTimerStopped">{{resendCodeTimer | date: "00|ss"}}</span>
+              <span class="resend-code-action" *ngIf="isResendTimerStopped"><button type="button" (click)="resendOtp(authenticationFormGroup.get('mobileNumber').value)">Resend code</button></span>
+          <span></span>
+          </span></div>
+      </form>
+  </div>
+</ng-template>

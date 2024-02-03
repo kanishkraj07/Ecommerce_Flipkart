@@ -1,0 +1,21 @@
+server:
+  port: 9002
+
+spring:
+  application:
+    name: cart-service
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: f_cart
+    password: flipkart_cart
+    url: jdbc:mysql://localhost:3306/cart_db
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: 'true'
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+

@@ -1,0 +1,12 @@
+<section class="category-items-section" [class.isInterior]="isInternalCategoryItems">
+  <ng-container *ngFor="let item of categoryItemsList">
+    <div class="category-items">
+      <div class="item-image" *ngIf="!isInternalCategoryItems">
+        <img [src]="item.category_img" alt="image">
+      </div>
+      <div class="item-name" [class.interior-item-name]="isInternalCategoryItems">
+        {{item.category_name}}
+      </div>
+    </div>
+  </ng-container>
+</section>

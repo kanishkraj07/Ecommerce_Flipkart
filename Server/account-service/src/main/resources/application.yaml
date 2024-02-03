@@ -1,0 +1,20 @@
+server:
+  port: 9000
+
+spring:
+  application:
+    name: account-service
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: f_account
+    password: flipkart_account
+    url: jdbc:mysql://localhost:3306/account_db
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: 'true'
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
