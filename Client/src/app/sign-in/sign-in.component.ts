@@ -37,7 +37,7 @@ export class SignInComponent implements OnInit, AfterViewInit, OnDestroy{
   currentTime: number;
   futureTime: number;
   resendCodeTimer: number;
-  resendCodeInterval: number;
+  resendCodeInterval;
   isResendTimerStopped: boolean;
 
   readonly NEW_USER_MESSAGE = `Looks like you're new here!`;

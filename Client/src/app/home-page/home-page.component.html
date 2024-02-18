@@ -33,10 +33,10 @@
   <section>
     <div class="category-panel-container">
      <ng-container *ngFor="let panelInfo of panelsInfo; let index=index">
-       <ng-container [ngTemplateOutlet]="categoryPanel" [ngTemplateOutletContext]="{ panelInfo: panelInfo, index: index }"></ng-container>
-       <div *ngIf="index === 8">
-         <img [src]="ads[1]" alt="ad-image">
+       <div *ngIf="index === 1" class="branded-ad-container">
+         <img [src]="brandAd" *ngFor="let brandAd of ads" >
        </div>
+       <ng-container [ngTemplateOutlet]="categoryPanel" [ngTemplateOutletContext]="{ panelInfo: panelInfo, index: index }"></ng-container>
      </ng-container>
     </div>
   </section>

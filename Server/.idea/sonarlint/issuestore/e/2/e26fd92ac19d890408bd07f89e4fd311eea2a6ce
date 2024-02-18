@@ -1,14 +1,0 @@
-
-m	java:S117
-"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÓÀŠú8à…Ê«Ä1
-m	java:S117
-"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÓÀŠú8à…Ê«Ä1
-m	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(°Þ©Õ8ðËÌ«Ä1
-m	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(êÒ–¹8ðËÌ«Ä1
-{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ê‹Ü°ýÿÿÿÿ8…’É«Ä1
-u	java:S116"TRename this field "mobile_no" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.( ´ˆÖùÿÿÿÿ8Š’É«Ä1
-r	java:S116"QRename this field "otp_no" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ðå—¢üÿÿÿÿ8Š’É«Ä1
-i	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(±ýúy8¡ÏÉ«Ä1
-j	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(°Þ©Õ8£ÏÉ«Ä1
-o	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ô÷”Ùùÿÿÿÿ8¤ÏÉ«Ä1
-j	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(êÒ–¹8¥ÏÉ«Ä1

@@ -1,13 +1,0 @@
-
-{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ê‹Ü°ıÿÿÿÿ8ÀªÚÉ1
-ƒ
-java:S1128"aRemove this unused import 'com.flipkartserver.authenticationservice.jwtauthorization.JwtService'.(Ùû˜ÿÿÿÿÿ8÷¡©‚Ê1
-Z
-java:S1128">Remove this unused import 'jakarta.ws.rs.BadRequestException'.(¾›’q8÷¡©‚Ê1
-j
-java:S1128
-"HRemove this unused import 'org.springframework.web.client.RestTemplate'.(Îö¼Şûÿÿÿÿ8÷¡©‚Ê1
-M
-java:S1128"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ8÷¡©‚Ê1
-L
-java:S1068"*Remove this unused "otpDao" private field.(ˆèÒüøÿÿÿÿ8–©æÿÉ1

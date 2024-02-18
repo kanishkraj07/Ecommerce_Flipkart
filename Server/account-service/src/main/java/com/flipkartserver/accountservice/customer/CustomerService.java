@@ -2,9 +2,6 @@ package com.flipkartserver.accountservice.customer;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import javax.security.auth.login.AccountNotFoundException;
-import java.sql.Timestamp;
 import java.time.Instant;
 import java.util.Objects;
 import java.util.UUID;

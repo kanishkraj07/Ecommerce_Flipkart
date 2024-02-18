@@ -1,16 +1,0 @@
-
-r	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(×Ï³ìıÿÿÿÿ8¥ÿÖ«Í1
-r	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(×Ï³ìıÿÿÿÿ8¥ÿÖ«Í1
-r	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(×Ï³ìıÿÿÿÿ8õ†á«Í1
-r	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(´ßçêşÿÿÿÿ8ı¹Ø«Í1
-r	java:S117 "QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(áÓµ’ıÿÿÿÿ8ı¹Ø«Í1
-m	java:S117)"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(»›…»8õ†á«Í1
-r	java:S116"VRename this field "seller_name" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Â®Òæ8ç©Õ«Í1
-y	java:S116"XRename this field "seller_rating" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Å™¹ûÿÿÿÿ8è©Õ«Í1
-x	java:S116"\Rename this field "seller_highlights" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(€†Ì8ú†á«Í1
-o	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÁÇ¯²ûÿÿÿÿ8¨ÿÖ«Í1
-o	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(´ßçêşÿÿÿÿ8©ÿÖ«Í1
-j	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¼Ş¯ô8©ÿÖ«Í1
-o	java:S100 "NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(áÓµ’ıÿÿÿÿ8©ÿÖ«Í1
-j	java:S100%"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(˜ïß8ı†á«Í1
-j	java:S100)"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(»›…»8ı†á«Í1

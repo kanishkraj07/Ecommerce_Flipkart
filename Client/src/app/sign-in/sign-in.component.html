@@ -11,7 +11,7 @@
         <img src="assets/images/login_img.png" alt="login-image">
       </div>
     </div>
-    <div class="sign-in-right-container">
+    <div class="sign-in-right-container" [class.auth-right-container]="authView">
       <ng-container [ngTemplateOutlet]="authView ? otpAuthView : registrationView"></ng-container>
     </div>
 </section>
@@ -53,6 +53,9 @@
               <span class="resend-code-action" *ngIf="isResendTimerStopped"><button type="button" (click)="resendOtp(authenticationFormGroup.get('mobileNumber').value)">Resend code</button></span>
           <span></span>
           </span></div>
+        <div class="imp-note">
+          Note: Since our third-party OTP service will not send OTP's for unverified numbers, Currently, you can use this (111111) 6-digit number as an OTP.
+        </div>
       </form>
   </div>
 </ng-template>

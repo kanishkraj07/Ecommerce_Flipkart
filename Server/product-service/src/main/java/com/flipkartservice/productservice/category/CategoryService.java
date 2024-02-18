@@ -19,11 +19,9 @@ public class CategoryService {
 
     public List<CategoryPanelWithProduct> getAllPanelWithProducts() {
        List<CategoryPanelWIthProductModel> allPanelProductsList = categoryDao.getAllPanelWithProducts();
-       Map<UUID, List<CategoryPanelWIthProductModel>> map = allPanelProductsList.stream().collect(Collectors.groupingBy(CategoryPanelWIthProductModel::getPanelId));
+       Map<UUID, List<CategoryPanelWIthProductModel>> map = allPanelProductsList.stream().collect(Collectors.groupingBy(CategoryPanelWIthProductModel::getPanelId,
+               LinkedHashMap::new, Collectors.toList()));
        List<CategoryPanelWithProduct> categoryPanelWithProductList = new ArrayList<>(List.of());
-
-       Comparator<CategoryPanelWIthProductModel> orderComparator = Comparator.comparing(CategoryPanelWIthProductModel::getRowOrder);
-       map.replaceAll((k, v) -> v.stream().sorted(orderComparator).collect(Collectors.toList()));
         map.forEach((panelId, panelProduct) -> {
             List<CategoryPanelProduct> categoryPanelProductList = new ArrayList<>(List.of());
             CategoryPanel categoryPanel = CategoryPanel.builder()

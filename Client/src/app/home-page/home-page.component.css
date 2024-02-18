@@ -205,3 +205,17 @@
 .mini-min-offer{
   font-size: 1.5em;
 }
+
+.branded-ad-container {
+  width: 100%;
+  display: grid;
+  grid-gap: 15px;
+  text-align: center;
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.branded-ad-container img {
+  width: 100%;
+  border-radius: 5px;
+}

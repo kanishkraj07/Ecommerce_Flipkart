@@ -38,8 +38,15 @@ export class HomePageComponent implements OnInit {
                       'https://rukminim1.flixcart.com/fk-p-flap/1600/270/image/4732d7a1b8921f82.jpg?q=20',
                       'https://rukminim1.flixcart.com/fk-p-flap/1600/270/image/81a6ce54a0a3230a.jpg?q=20'];
   ads: string[] = [
-    'https://static-assets-web.flixcart.com/www/linchpin/batman-returns/images/fk-default-image-75ff340b.png?q=90',
-    'https://cdn0.desidime.com/cdn-cgi/image/fit=crop,f=auto,onerror=redirect,w=1200,h=1200,q=90/topics/photos/1657290/original/Best-Smartphone-Deals-on-Flipkart-Big-Billion-Day-Sale.jpg'
+    'https://rukminim1.flixcart.com/fk-p-flap/520/280/image/379d14b1296f8bb4.jpg?q=20',
+    'https://rukminim1.flixcart.com/fk-p-flap/520/280/image/7e09f9adb5eae9ec.jpg?q=20',
+    'https://rukminim1.flixcart.com/fk-p-flap/520/280/image/e959f551fe7da4bf.jpg?q=20',
+    'https://rukminim1.flixcart.com/fk-p-flap/520/280/image/09ada0f48b8e2bb7.jpg?q=20',
+    'https://rukminim1.flixcart.com/fk-p-flap/520/280/image/5a82189aa8558364.jpg?q=20',
+    'https://rukminim1.flixcart.com/fk-p-flap/520/280/image/07257dd303936283.png?q=20',
+    'https://rukminim1.flixcart.com/fk-p-flap/520/280/image/24b3a35f26a0bb4b.jpg?q=20',
+    'https://rukminim1.flixcart.com/fk-p-flap/520/280/image/c45c807df9d7d859.jpg?q=20',
+    'https://rukminim1.flixcart.com/fk-p-flap/520/280/image/ea6fb437742bfba8.jpg?q=20'
   ];
   index = 0;
   deviation: any;
@@ -85,7 +92,6 @@ export class HomePageComponent implements OnInit {
         let count: number = 0;
         this.panelsInfo.forEach((panelsInfo: CategoryPanelWithProduct) => {
           if (gotMiniPanel && !panelsInfo.panel.miniPanel) {
-            panelsInfo.panel.brandedAds = this.ads[count++];
             gotMiniPanel = false;
           } else if (panelsInfo.panel.miniPanel) {
             gotMiniPanel = true;

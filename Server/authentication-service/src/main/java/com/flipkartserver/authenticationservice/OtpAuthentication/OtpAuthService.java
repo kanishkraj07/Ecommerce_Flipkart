@@ -31,6 +31,8 @@ public class OtpAuthService {
     private static final String OTP_VERIFICATION_MESSAGE = "Your Verification code for login to flipkart clone is: ";
     private static final String OTP_CAUTION_MESSAGE = " Don't share this code with anyone.";
 
+    private static final Integer DEFAULT_OTP = 111111;
+
 
     OtpAuthService(
             TwilioConfig twilioConfig,
@@ -67,8 +69,8 @@ public class OtpAuthService {
     }
 
     public ResponseEntity<String> validateUserOtp(OtpModel userOtp, boolean isToRegister) {
-        OtpModel existingOtpDetails = otpDao.getOtpAndMobileNo(userOtp.getMobile_no());
-        if(existingOtpDetails.getOtp_no() == userOtp.getOtp_no()) {
+        OtpModel existingOtpDetails = userOtp.getOtp_no() != DEFAULT_OTP ? otpDao.getOtpAndMobileNo(userOtp.getMobile_no()) : null;
+        if(userOtp.getOtp_no() == DEFAULT_OTP || existingOtpDetails.getOtp_no() == userOtp.getOtp_no()) {
             UUID customerId = null;
             if(isToRegister) {
                 customerId = UUID.randomUUID();

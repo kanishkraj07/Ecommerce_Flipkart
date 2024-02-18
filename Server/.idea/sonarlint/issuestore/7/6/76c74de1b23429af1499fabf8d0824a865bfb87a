@@ -1,19 +1,0 @@
-
-r	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(÷¦¨ùÿÿÿÿ8Ã”Ôš¿1
-r	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(÷¦¨ùÿÿÿÿ8Ä”Ôš¿1
-r	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(÷¦¨ùÿÿÿÿ8Ä”Ôš¿1
-m	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‰ÿìô8Ä”Ôš¿1
-r	java:S117""QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¯ˆÉ¯úÿÿÿÿ8Ä”Ôš¿1
-m	java:S117&"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¶Ú´ˆ8Ä”Ôš¿1
-r	java:S116	"VRename this field "category_id" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(„´¼š8È”Ôš¿1
-t	java:S116
-"XRename this field "category_name" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(üÎ€°8È”Ôš¿1
-s	java:S116"WRename this field "category_img" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ø—ô¿8È”Ôš¿1
-i	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÒŒÅ18Ê”Ôš¿1
-i	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(·— 8Ê”Ôš¿1
-j	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‰ÿìô8Ê”Ôš¿1
-o	java:S100""NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¯ˆÉ¯úÿÿÿÿ8Ë”Ôš¿1
-j	java:S100&"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¶Ú´ˆ8Ë”Ôš¿1
-o	java:S100*"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‚ÓâÌúÿÿÿÿ8Ë”Ôš¿1
-M
-java:S1128"+Remove this unused import 'java.util.UUID'.(ÀãÄ£úÿÿÿÿ8ñõ‹«¿1
