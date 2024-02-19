@@ -5,8 +5,6 @@ spring:
   application:
     name: flipkart-service-registry
 eureka:
-  instance:
-    hostname: localhost
   client:
     register-with-eureka: false
     fetch-registry: false
