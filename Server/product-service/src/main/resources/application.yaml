@@ -10,7 +10,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: f_product
     password: flipkart_product
-    url: jdbc:mysql://localhost:3306/product_db
+    url: jdbc:mysql://productdb.cv4m2kg60um8.eu-north-1.rds.amazonaws.com:3306/product_db
   jpa:
     hibernate:
       ddl-auto: update

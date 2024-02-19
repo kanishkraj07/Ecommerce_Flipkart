@@ -6,7 +6,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: f_auth
     password: flipkart_auth
-    url: jdbc:mysql://localhost:3306/auth_db
+    url: jdbc:mysql://authdb.cv4m2kg60um8.eu-north-1.rds.amazonaws.com:3306/auth_db
   jpa:
     hibernate:
       ddl-auto: update

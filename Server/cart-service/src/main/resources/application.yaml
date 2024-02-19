@@ -8,7 +8,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: f_cart
     password: flipkart_cart
-    url: jdbc:mysql://localhost:3306/cart_db
+    url: jdbc:mysql://cartdb.cv4m2kg60um8.eu-north-1.rds.amazonaws.com:3306/cart_db
   jpa:
     hibernate:
       ddl-auto: update
