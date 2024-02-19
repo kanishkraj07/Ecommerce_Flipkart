@@ -51,5 +51,5 @@ spring:
 eureka:
   client:
     service-url:
-      defaultZone: https://flipkart-service-registry.onrender.com
+      defaultZone: http://localhost:8761/eureka/
 
