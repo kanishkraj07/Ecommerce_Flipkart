@@ -13,5 +13,5 @@ A fully featured full-stack e-commerce application that has been built with Angu
 * User Registration: Users can able to register or sign in with a one time password (OTP) by providing their mobile number.
 * Home Page: This page provides different categories of product details in various panels along with searching functionality.
 * Product Catalog: Displays product information (price details, Bank offers, seller details, product highlights, delivery details, packaging details) to the user and able to add items to cart.
-* Cart Page: It displays all cart items with price details according to those items for a particular authenticated user, and the user can modify quantities and remove any cart item from it.
-* Payment Tranfer: Usesr can able buy their desired products in our website with razorpay seamlessly.
+* Cart Page: It displays all cart items with price details according to those items for all authenticated users, and also the users can adjust quantities and remove any cart item from it.
+* Payment Tranfer: Users can able buy their desired products in our website with razorpay seamlessly.
